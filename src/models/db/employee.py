@@ -18,3 +18,4 @@ class Employee(Base):
     country = Column(String, index=True)
     bio = Column(String)
     rating = Column(Float, index=True)
+    fetched_at = Column(Date)

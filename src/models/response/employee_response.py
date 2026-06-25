@@ -15,6 +15,7 @@ class EmployeeResponse(BaseModel):
     country: str | None
     bio: str | None
     rating: float | None
+    fetched_at: date | None
 
     class Config:
         from_attributes = True
