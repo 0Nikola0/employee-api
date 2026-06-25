@@ -9,7 +9,7 @@ app = FastAPI(
     openapi_tags=[
         {"name": "Employees"},
     ],
-    lifespan=lifespan
+    lifespan=lifespan,
 )
 
 app.include_router(employee_routes.router)

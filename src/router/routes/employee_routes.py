@@ -58,7 +58,13 @@ def get_all_employees(
         limit=limit,
     )
 
-    return PaginatedResponse[EmployeeResponse](data=employees, pagination=pagination)
+    employee_responses = [
+        EmployeeResponse.model_validate(employee) for employee in employees
+    ]
+
+    return PaginatedResponse[EmployeeResponse](
+        data=employee_responses, pagination=pagination
+    )
 
 
 @router.get("/{employee_id}", response_model=EmployeeResponse)
@@ -67,4 +73,6 @@ def get_employee_by_id(
     employee_service: EmployeeService = Depends(get_employee_service),
 ):
 
-    return employee_service.get_employee_by_id(employee_id)
+    return EmployeeResponse.model_validate(
+        employee_service.get_employee_by_id(employee_id)
+    )

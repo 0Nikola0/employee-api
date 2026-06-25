@@ -17,6 +17,8 @@ class AuthToken(BaseModel):
             return v
 
         return datetime.fromisoformat(str(v))
-    
+
     def is_expired(self, buffer_seconds: int = 30) -> bool:
-        return datetime.now(tz=timezone.utc) >= (self.expires_at - timedelta(seconds=buffer_seconds))
+        return datetime.now(tz=timezone.utc) >= (
+            self.expires_at - timedelta(seconds=buffer_seconds)
+        )

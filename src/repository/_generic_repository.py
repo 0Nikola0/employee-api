@@ -2,7 +2,6 @@ from typing import TypeVar, Generic
 
 from sqlalchemy.orm import Session
 
-
 T = TypeVar("T")
 
 
@@ -55,10 +54,7 @@ class GenericRepository(Generic[T]):
         offset = max(0, offset)
         limit = min(max(1, limit), 100)
 
-        query = (
-            self.db.query(self.model_class)
-            .order_by(self.model_class.id)
-        )
+        query = self.db.query(self.model_class).order_by(self.model_class.id)
 
         total_count = query.count()
         records = query.offset(offset).limit(limit).all()

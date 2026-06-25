@@ -21,12 +21,16 @@ async def lifespan(_: FastAPI):
         try:
             import_employees.run_import()
         except Exception as e:
-            logger.error(f"Importing employees failed with error {e}. \nTraceback: {traceback.format_exc()}")
+            logger.error(
+                f"Importing employees failed with error {e}. \nTraceback: {traceback.format_exc()}"
+            )
 
     if settings.SEED_DB:
         try:
             populate_db.populate()
-        except Exception as e:  
-            logger.error(f"Seeding database failed with error {e}. \nTraceback: {traceback.format_exc()}")
+        except Exception as e:
+            logger.error(
+                f"Seeding database failed with error {e}. \nTraceback: {traceback.format_exc()}"
+            )
 
     yield
