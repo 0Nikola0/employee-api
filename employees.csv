@@ -1,0 +1,7 @@
+id,first_name,last_name,title,email,date_of_birth,image,address,country,bio,rating,fetched_at
+23b5c9cf-c2c5-4e7e-aad8-275062beb349,James,Okafor,Mr.,james.okafor@example.com,1995-01-08,https://lorempixel.com/640/480/people/?96612,"14 Broad Street, Victoria Island",Nigeria,DevOps engineer with expertise in Kubernetes and CI/CD pipelines.,3.85,
+617f939f-09e8-4b54-a557-07b0c9cba7f6,Sarah,Connor,Ms.,sarah.connor@example.com,1985-03-14,https://lorempixel.com/640/480/people/?96612,9432 Maple Drive Apt 4B,USA,Project manager with 10 years of experience in agile environments.,4.75,
+8c8c13b6-35ed-3ffb-92d5-c438825df67f,Dayni,Mayez,Mr.,andres34@gmail.com,1990-06-29,https://lorempixel.com/640/480/people/?96612,18342 Alisa Square Suite 259,USA,…,3.06,2026-06-25
+9932a72e-cde9-4959-9198-fee4d3b82e1c,Amina,Yilmaz,Dr.,amina.yilmaz@example.com,1988-07-19,https://lorempixel.com/640/480/people/?96612,Bağcılar Cad. No:5,Turkey,Data scientist focused on NLP and machine learning pipelines.,4.9,
+b8d829d7-7193-4f2c-bf59-2f62f99099b1,Luca,Bianchi,Mr.,luca.bianchi@example.com,1992-11-02,https://lorempixel.com/640/480/people/?96612,"Via Roma 12, Floor 3",Italy,Frontend developer specializing in React and design systems.,4.2,
+c7838da8-4690-484b-8008-d2eaac8f802b,Dayni,Mayez,Mr.,andres32344@gmail.com,1990-06-29,https://lorempixel.com/640/480/people/?96612,18342 Alisa Square Suite 259,USA,Experienced software engineer with a passion for backend systems.,3.06,
