@@ -125,7 +125,7 @@ def get_employees(token_manager: TokenCacheManager) -> list[EmployeeCreate]:
 
 
 def run_import() -> None:
-    print("Importing employees")
+    logger.info("Importing employees")
 
     token_manager = TokenCacheManager()
     employees = get_employees(token_manager)

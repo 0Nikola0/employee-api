@@ -1,3 +1,4 @@
+import logging
 from datetime import date
 
 if __name__ == "__main__":
@@ -8,6 +9,8 @@ if __name__ == "__main__":
 
 from repository.conn_setup import SessionLocal, engine
 from models.db import Base, Employee
+
+logger = logging.getLogger(__name__)
 
 employees = [
     {
@@ -74,7 +77,7 @@ employees = [
 
 
 def populate():
-    print("Populating db")
+    logger.info("Populating db")
 
     db = SessionLocal()
     try:
@@ -83,11 +86,11 @@ def populate():
             db.add(employee)
 
         db.commit()
-        print(f"Populated {len(employees)} employees.")
+        logger.info(f"Populated {len(employees)} employees.")
 
     except Exception as e:
         db.rollback()
-        print(f"Error populating DB: {e}")
+        logger.info(f"Error populating DB: {e}")
 
     finally:
         db.close()

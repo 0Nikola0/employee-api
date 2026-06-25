@@ -1,8 +1,8 @@
-import sys
-from pathlib import Path
+if __name__ == "__main__":
+    import sys
+    from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-
+    sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from fastapi import FastAPI, Header
 from pydantic import BaseModel
@@ -49,7 +49,7 @@ def asddd(access_token: str = Header(...)):
     ]
 
 
-import uvicorn
-
 if __name__ == "__main__":
+    import uvicorn
+
     uvicorn.run(app, host="0.0.0.0", port=8081, proxy_headers=True)
