@@ -1,15 +1,15 @@
 Project structure
 ---
-Project is firstly split in 2 main folders: src/ and tests/.
-In src/ is the main source code, and in tests/ are the tests for that code.
-The source code is organized mainly in 4 subdirectories: models, repository, service and router.
-Models contains the database, request and response data models.
-Repository is for the connection to the database.
-Service holds the business logic and interacts between the router and repository layer.
-The router is for the exposed API endpoints.
-Additionally the project contains a folder with extra code that can be run in standalone in the scripts/ folder.
-From here you can seed the db / fetch data from an external API.
-These two scripts can be configured to run automatically on app startup with an environemntal variables.
+Project is firstly split in 2 main folders: src/ and tests/. \
+In src/ is the main source code, and in tests/ are the tests for that code. \
+The source code is organized mainly in 4 subdirectories: models, repository, service and router. \
+Models contains the database, request and response data models. \
+Repository is for the connection to the database. \
+Service holds the business logic and interacts between the router and repository layer. \
+The router is for the exposed API endpoints. \
+Additionally the project contains a folder with extra code that can be run in standalone in the scripts/ folder. \
+From here you can seed the db / fetch data from an external API. \
+These two scripts can be configured to run automatically on app startup with an environemntal variables. \
 
 Needs
 ---
