@@ -4,10 +4,11 @@ import functools
 from typing import Callable, Any
 from datetime import datetime, timezone
 
-import sys
-from pathlib import Path
+if __name__ == "__main__":
+    import sys
+    from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+    sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 import requests
 from requests.exceptions import RequestException, Timeout, ConnectionError
@@ -18,7 +19,6 @@ from repository.conn_setup import get_db, engine
 from models.request import EmployeeCreate, AuthToken
 from service.employee_service import EmployeeService
 
-logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
 logger = logging.getLogger(__name__)
 
 
@@ -73,11 +73,9 @@ def retry_with_backoff(
                 except RequestException as e:
                     last_exception = e
 
-                    # Check if transient error
                     if isinstance(e, (Timeout, ConnectionError)):
                         transient = True
                     elif hasattr(e, "response") and e.response:
-                        # 5xx or 429 are transient
                         transient = (
                             e.response.status_code >= 500
                             or e.response.status_code == 429
@@ -85,7 +83,6 @@ def retry_with_backoff(
                     else:
                         transient = False
 
-                    # Retry if transient and attempts remain
                     if transient and attempt < max_retries - 1:
                         time.sleep(delay)
                         delay = min(delay * backoff_factor, max_delay)
@@ -127,8 +124,8 @@ def get_employees(token_manager: TokenCacheManager) -> list[EmployeeCreate]:
     return employees
 
 
-if __name__ == "__main__":
-    Base.metadata.create_all(bind=engine)
+def run_import() -> None:
+    print("Importing employees")
 
     token_manager = TokenCacheManager()
     employees = get_employees(token_manager)
@@ -144,3 +141,9 @@ if __name__ == "__main__":
             emp_service.create_employee(e)
 
         logger.info(f"Stored {len(employees)} employees")
+
+
+if __name__ == "__main__":
+    Base.metadata.create_all(bind=engine)
+
+    run_import()

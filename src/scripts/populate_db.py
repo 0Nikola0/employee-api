@@ -1,19 +1,19 @@
-import sys
-from pathlib import Path
 from datetime import date
 
-sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
+if __name__ == "__main__":
+    import sys
+    from pathlib import Path
+
+    sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 
 from repository.conn_setup import SessionLocal, engine
 from models.db import Base, Employee
-
-Base.metadata.create_all(bind=engine)
 
 employees = [
     {
         "date_of_birth": date(1990, 6, 29),
         "image": "https://lorempixel.com/640/480/people/?96612",
-        "email": "andres34@gmail.com",
+        "email": "andres32344@gmail.com",
         "first_name": "Dayni",
         "last_name": "Mayez",
         "title": "Mr.",
@@ -74,6 +74,8 @@ employees = [
 
 
 def populate():
+    print("Populating db")
+
     db = SessionLocal()
     try:
         for data in employees:
@@ -92,4 +94,6 @@ def populate():
 
 
 if __name__ == "__main__":
+    Base.metadata.create_all(bind=engine)
+
     populate()
