@@ -30,7 +30,7 @@ python -m pip install -r requirements.txt
 Run the app:
 
 ```bash
-python -m src
+python src
 ```
 
 ### 2. Docker and docker-compose
